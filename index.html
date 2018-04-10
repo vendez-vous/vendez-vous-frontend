@@ -31,6 +31,8 @@
 				FB.logout(function(response) {
   					// user is now logged out
 				});
+
+				FB.Event.subscribe('xfbml.render', finished_rendering);
 		  	};
 
 			(function(d, s, id) {
@@ -40,16 +42,14 @@
 			    js.src = "https://connect.facebook.net/en_US/sdk.js";
 			    fjs.parentNode.insertBefore(js, fjs);
 			} (document, 'script', 'facebook-jssdk'));
-		</script>
 
-		<script>
 			var finished_rendering = function() {
 			  console.log("finished rendering plugins");
 			  var spinner = document.getElementById("spinner");
 			  spinner.removeAttribute("style");
 			  spinner.removeChild(spinner.childNodes[0]);
 			}
-			FB.Event.subscribe('xfbml.render', finished_rendering);
+			
 		</script>
 
 		<div id="spinner"
