@@ -14,9 +14,10 @@
 		    	FB.init({
 			      appId            : 203968780201183,
 			      autoLogAppEvents : true,
+			      cookie     	   : true,  // enable cookies to allow the server to access the session
 			      xfbml            : true,
 			      version          : 'v2.12',
-			      status 	       : true /* reduces time wasted in checking if the user is logged in or not */
+			      // status 	       : true /* reduces time wasted in checking if the user is logged in or not */
 		  	  	});
 
 		  	  	FB.getLoginStatus(function(response) {
@@ -35,6 +36,7 @@
 				FB.Event.subscribe('xfbml.render', finished_rendering);
 		  	};
 
+		  	// Load the SDK asynchronously
 			(function(d, s, id) {
 			    var js, fjs = d.getElementsByTagName(s)[0];
 			    if (d.getElementById(id)) {return;}
@@ -51,6 +53,8 @@
 			}
 			
 		</script>
+
+		<h1>Vendez Vous</h1>
 
 		<div id="spinner"
 		    style="
@@ -69,9 +73,5 @@
 		    	data-use-continue-as="true"
 		    ></div>
 		</div>
-
-		<h1>Vendez Vous</h1>
-		<!-- <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div> -->
-
   </body>
 </html>
