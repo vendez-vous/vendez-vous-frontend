@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<title>Vendez Vous</title>
+    <!-- Required meta tags -->
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="">
-		<script type="text/javascript"></script>
-  	</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- meta tag to make the website Search Engine friendly-->
+    <meta name="HandheldFriendly" content="True">
 
-  	<body>
-  		<h1>Vendez Vous</h1>
+		<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <style>
+      h1 {
+        font-size: 64px;
+        font-weight: bold;
+      }
+    </style>
+
+  </head>
+
+  <body>
+  	<h1 class="text-center">Vendez Vous</h1>
 		
 
 
@@ -21,7 +36,7 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
-      // redirect();
+      redirect();
     } else {
       // The person is not logged into your app or we are unable to tell.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -72,10 +87,10 @@
     });
   }
 
-    function redirect() {
-    	var url = "https://xpac.tech";
-    	window.location(url);
-    }
+  function redirect() {
+  	var url = "https://xpac.tech";
+  	window.location(url);
+  }
 </script>
 
 <!--
@@ -83,9 +98,9 @@
 -->
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+  </fb:login-button>
 
-<div id="status">
-</div>
+  <div id="status">
+  </div>
   </body>
 </html>
