@@ -41,8 +41,8 @@
 
     function handleSessionResponse(response) {
     //if we dont have a session (which means the user has been logged out, redirect the user)
-    if (!response.status) {
-        window.location = "https://vendez-vous.ml";
+    if (response.status == 'connected') {
+				FB.logout(function(session)) {window.location = "https://vendez-vous.ml";}
         return;
     }
 
