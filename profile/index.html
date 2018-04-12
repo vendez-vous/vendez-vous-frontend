@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Vendez Vous</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- meta tag to make the website Search Engine friendly-->
+    <meta name="HandheldFriendly" content="True">
 	<style type="text/css"></style>
 	<script type="text/javascript"></script>
 </head>
@@ -22,5 +25,27 @@
 }); -->
 
 <!-- <a href="/delete" onclick="FB.logout();">Logout</a> Use it for the delte account button, here /logout is a function which deletes the user's account -->
+
+<script>
+	window.fbAsyncInit = function() {
+    FB.init({
+      appId      : 203968780201183,
+      cookie     : true,  // enable cookies to allow the server to access 
+                          // the session
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v2.12', // use graph api version 2.8
+      autoLogAppEvents : true,
+      status 	 : true /* reduces time wasted in checking if the user is logged in or not */
+    });
+    };
+
+    (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 </body>
 </html>
