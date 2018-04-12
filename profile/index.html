@@ -29,7 +29,7 @@
 	window.fbAsyncInit = function() {
     FB.init({
       appId      : 203968780201183,
-      cookie     : true,  // enable cookies to allow the server to access 
+      cookie     : true,  // enable cookies to allow the server to access
                           // the session
       xfbml      : true,  // parse social plugins on this page
       version    : 'v2.12', // use graph api version 2.8
@@ -41,7 +41,7 @@
 
     function handleSessionResponse(response) {
     //if we dont have a session (which means the user has been logged out, redirect the user)
-    if (!response.session) {
+    if (!response.status) {
         window.location = "https://vendez-vous.ml";
         return;
     }
