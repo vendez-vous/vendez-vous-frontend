@@ -17,8 +17,7 @@
 	<button onclick="location.href='https://vendez-vous.ml/nearby'" type="button"> Users Available
 	</button>
 
-	<button onclick="FB.logout(function(response){location.href='https://vendez-vous.ml';});" type="button"> Logout
-	</button>
+	<button onclick="FB.logout(handleSessionResponse);" type="button">Logout</button>
 
 	<!-- FB.logout(function(response) {
   // user is now logged out
@@ -37,7 +36,15 @@
       autoLogAppEvents : true,
       status 	 : true /* reduces time wasted in checking if the user is logged in or not */
     });
+    FB.getLoginStatus(handleSessionResponse);
     };
+
+    function handleSessionResponse(response) {
+    //if we dont have a session (which means the user has been logged out, redirect the user)
+    if (!response.session) {
+        window.location = "https://vendez-vous.ml";
+        return;
+    }
 
     (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
