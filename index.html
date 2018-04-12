@@ -32,8 +32,7 @@
       if (response.status === 'connected') {
         // Logged into your app and Facebook.
          testAPI();
-         response.name + " " + response.id + " " + response.last_name
-         <img src="response.picture" alt="Mountain View">
+         getInfo();
         // redirect();
         // window.top.location = "https://vendez-vous.ml/nearby";
     } else {
@@ -91,6 +90,12 @@
   	var url = "https://vendez-vous.ml/nearby";
   	window.location(url);
   }
+
+  function getInfo() {
+      FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture.width(150).height(150)'}, function(response) {
+        document.getElementById('status').innerHTML = "<img src='" + response.picture.data.url + "'>";
+      });
+    }
 </script>
 
 <!--
