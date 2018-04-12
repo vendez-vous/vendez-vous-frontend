@@ -17,6 +17,8 @@
 	<button onclick="location.href='https://vendez-vous.ml/nearby'" type="button"> Users Available
 	</button>
 
+	<button onclick="myFunction()" type="button">Logout</button>
+
 	<!-- FB.logout(function(response) {
   // user is now logged out
 }); -->
@@ -44,6 +46,14 @@
         return;
     }
 
+    //if we do have a non-null response.session, call FB.logout(),
+    //the JS method will log the user out of Facebook and remove any authorization cookies
+    FB.logout(handleSessionResponse);
+}
+function myFunction() {
+    FB.logout(handleSessionResponse);
+}
+
     (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
@@ -51,7 +61,7 @@
     js.src = "https://connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
-    <button onclick="FB.logout(handleSessionResponse);" type="button">Logout</button>
 </script>
+
 </body>
 </html>
