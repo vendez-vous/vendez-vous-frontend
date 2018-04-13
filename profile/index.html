@@ -17,7 +17,7 @@
 	<button onclick="location.href='https://vendez-vous.ml/nearby'" type="button"> Users Available
 	</button>
 
-	<button onclick="myFunction()" type="button">Logout</button>
+	<button onclick="handleSessionResponse(response)" type="button">Logout</button>
 
 	<!-- FB.logout(function(response) {
   // user is now logged out
@@ -50,9 +50,7 @@
     //the JS method will log the user out of Facebook and remove any authorization cookies
     FB.logout(handleSessionResponse);
 }
-function myFunction() {
-    FB.logout(handleSessionResponse);
-}
+
 
     (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
