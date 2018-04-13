@@ -1,105 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Vendez Vous</title>
-    <!-- Required meta tags -->
-		<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- meta tag to make the website Search Engine friendly-->
-    <meta name="HandheldFriendly" content="True">
-
-		<!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Bootstrap JS -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-    <style>
-      h1 {
-        font-size: 64px;
-        font-weight: bold;
-      }
-    </style>
-  </head>
-
-  <body>
-  	<h1 class="text-center">Vendez Vous</h1>
-		<script>
-			// This is called with the results from from FB.getLoginStatus().
-      function statusChangeCallback(response) {
-      console.log('statusChangeCallback');
-      console.log(response);
-
-      if (response.status === 'connected') {
-        // Logged into your app and Facebook.
-         testAPI();
-         getInfo();
-        window.top.location = "https://vendez-vous.ml/nearby";
-    } else {
-      // The person is not logged into your app or we are unable to tell.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
+<head>
+	<title>Vendez Vous</title>
+	<base href="/">
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- meta tag to make the website Search Engine friendly-->
+  <meta name="HandheldFriendly" content="True">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <style>
+    h1 {
+      font-size: 64px;
+      font-weight: bold;
     }
-  }
+  </style>
+</head>
 
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
+<body>
+	<h1 class="text-center">Vendez Vous</h1>
+	<script>
+		// This is called with the results from from FB.getLoginStatus().
+    function statusChangeCallback(response) {
+	    console.log('statusChangeCallback');
+	    console.log(response);
 
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : 203968780201183,
-      cookie     : true,  // enable cookies to allow the server to access 
-                          // the session
-      xfbml      : true,  // parse social plugins on this page
-      version    : 'v2.12', // use graph api version 2.8
-      autoLogAppEvents : true,
-      status 	 : true /* reduces time wasted in checking if the user is logged in or not */
-    });
+	    if (response.status === 'connected') {
+	      // Logged into your app and Facebook.
+	       testAPI();
+	       getInfo();
+	      	window.top.location = "https://vendez-vous.ml/nearby";
+	  	} else {
+	    	// The person is not logged into your app or we are unable to tell.
+	    	document.getElementById('status').innerHTML = 'Please log ' +
+	      'into this app.';
+	  	}
+		}
 
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
+		function checkLoginState() {
+		  FB.getLoginStatus(function(response) {
+		    statusChangeCallback(response);
+		  });
+		}
 
-  };
+		window.fbAsyncInit = function() {
+		  FB.init({
+		    appId      : 203968780201183,
+		    cookie     : true,  // enable cookies to allow the server to access
+		                        // the session
+		    xfbml      : true,  // parse social plugins on this page
+		    version    : 'v2.12', // use graph api version 2.8
+		    autoLogAppEvents : true,
+		  //  status 	 : true /* reduces time wasted in checking if the user is logged in or not */
+		  });
 
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+		  FB.getLoginStatus(function(response) {
+		    statusChangeCallback(response);
+		  });
+		};
 
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name + " " + response.id + " "  + response.last_name);
-      response.name + response.id + response.last_name
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
+		// Load the SDK asynchronously
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "https://connect.facebook.net/en_US/sdk.js";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
 
-  function getInfo() {
-      FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture.width(150).height(150)'}, function(response) {
-        document.getElementById('status').innerHTML = "<img src='" + response.picture.data.url + "'>";
-      });
-    }
-</script>
+	// Here we run a very simple test of the Graph API after login is
+	// successful.  See statusChangeCallback() for when this call is made.
+		function testAPI() {
+		  console.log('Welcome!  Fetching your information.... ');
+		  FB.api('/me', function(response) {
+		    console.log('Successful login for: ' + response.name + " " + response.id + " "  + response.last_name);
+		    response.name + response.id + response.last_name
+		    document.getElementById('status').innerHTML ='Thanks for logging in, ' + response.name + '!';
+		  });
+		}
 
-<!--
-  Below we include the Login Button social plugin.
--->
+		function getInfo() {
+			FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture.width(150).height(150)'}, function(response) {
+   			document.getElementById('status').innerHTML = "<img src='" + response.picture.data.url + "'>";
+	  	});
+		}
+	</script>
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-  </fb:login-button>
+	<!--
+	Below we include the Login Button social plugin.
+	-->
 
-  <div id="status">
-  </div>
-  </body>
+	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+	</fb:login-button>
+
+	<div id="status"></div>
+</body>
 </html>

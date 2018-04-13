@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
 	<title>Vendez Vous</title>
+	<base href="/">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- meta tag to make the website Search Engine friendly-->
-    <meta name="HandheldFriendly" content="True">
+  <!-- meta tag to make the website Search Engine friendly-->
+  <meta name="HandheldFriendly" content="True">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<style type="text/css"></style>
 </head>
+
 <body>
 	<h1>Name</h1>
 	<h1>About</h1>
@@ -15,51 +18,38 @@
 
 	<button onclick="location.href='https://vendez-vous.ml/nearby'" type="button"> Users Available
 	</button>
+	<button onclick="javascript:logout();">Logout from Facebook</button>
 
 	<!-- <button onclick="handleSessionResponse(response)" type="button">Logout</button> -->
 
-<!-- <a href="/delete" onclick="FB.logout();">Logout</a> Use it for the delte account button, here /logout is a function which deletes the user's account -->
+	<!-- <a href="/delete" onclick="FB.logout();">Logout</a> Use it for the delte account button, here /logout is a function which deletes the user's account -->
 
-<script>
-	window.fbAsyncInit = function() {
-    FB.init({
-      appId      : 203968780201183,
-      cookie     : true,  // enable cookies to allow the server to access
-                          // the session
-      xfbml      : true,  // parse social plugins on this page
-      version    : 'v2.12', // use graph api version 2.8
-      autoLogAppEvents : true,
-      status 	 : true /* reduces time wasted in checking if the user is logged in or not */
-    });
-    // FB.getLoginStatus(handleSessionResponse);
-    };
+	<script>
+		window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : 203968780201183,
+	      cookie     : true,  // enable cookies to allow the server to access
+	                          // the session
+	      xfbml      : true,  // parse social plugins on this page
+	      version    : 'v2.12', // use graph api version 2.8
+	      autoLogAppEvents : true,
+	     // status 	 : true /* reduces time wasted in checking if the user is logged in or not */
+	    });
+	  };
 
-    // function handleSessionResponse(response) {
-    // //if we dont have a session (which means the user has been logged out, redirect the user)
-    // if (response.status == 'connected') {
-		// 		FB.logout(function(response)) {window.location = "https://vendez-vous.ml";}
-    //     return;
-    // }
+		(function(d, s, id) {
+	    var js, fjs = d.getElementsByTagName(s)[0];
+	    if (d.getElementById(id)) return;
+	    js = d.createElement(s); js.id = id;
+	    js.src = "https://connect.facebook.net/en_US/sdk.js";
+	    fjs.parentNode.insertBefore(js, fjs);
+	  }(document, 'script', 'facebook-jssdk'));
 
-    //if we do have a non-null response.session, call FB.logout(),
-    //the JS method will log the user out of Facebook and remove any authorization cookies
-    // FB.logout(handleSessionResponse);
-//}
-
-    (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-
-	function logout() {
-            FB.logout(function(response) {
-              // user is now logged out
-            });
-	}
-</script>
-<button onclick="javascript:logout();">Logout from Facebook</button>
+		function logout() {
+	    FB.logout(function(response) {
+	    	// user is now logged out
+	  	});
+		}
+	</script>
 </body>
 </html>
