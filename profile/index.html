@@ -7,7 +7,6 @@
     <!-- meta tag to make the website Search Engine friendly-->
     <meta name="HandheldFriendly" content="True">
 	<style type="text/css"></style>
-	<script type="text/javascript"></script>
 </head>
 <body>
 	<h1>Name</h1>
@@ -17,11 +16,7 @@
 	<button onclick="location.href='https://vendez-vous.ml/nearby'" type="button"> Users Available
 	</button>
 
-	<button onclick="handleSessionResponse(response)" type="button">Logout</button>
-
-	<!-- FB.logout(function(response) {
-  // user is now logged out
-}); -->
+	<!-- <button onclick="handleSessionResponse(response)" type="button">Logout</button> -->
 
 <!-- <a href="/delete" onclick="FB.logout();">Logout</a> Use it for the delte account button, here /logout is a function which deletes the user's account -->
 
@@ -36,21 +31,20 @@
       autoLogAppEvents : true,
       status 	 : true /* reduces time wasted in checking if the user is logged in or not */
     });
-    FB.getLoginStatus(handleSessionResponse);
+    // FB.getLoginStatus(handleSessionResponse);
     };
 
-    function handleSessionResponse(response) {
-    //if we dont have a session (which means the user has been logged out, redirect the user)
-    if (response.status == 'connected') {
-				FB.logout(function(response)) {window.location = "https://vendez-vous.ml";}
-        return;
-    }
+    // function handleSessionResponse(response) {
+    // //if we dont have a session (which means the user has been logged out, redirect the user)
+    // if (response.status == 'connected') {
+		// 		FB.logout(function(response)) {window.location = "https://vendez-vous.ml";}
+    //     return;
+    // }
 
     //if we do have a non-null response.session, call FB.logout(),
     //the JS method will log the user out of Facebook and remove any authorization cookies
-    FB.logout(handleSessionResponse);
-}
-
+    // FB.logout(handleSessionResponse);
+//}
 
     (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -59,7 +53,13 @@
     js.src = "https://connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
-</script>
 
+	function logout() {
+            FB.logout(function(response) {
+              // user is now logged out
+            });
+	}
+</script>
+<button onclick="javascript:logout();">Logout from Facebook</button>
 </body>
 </html>
