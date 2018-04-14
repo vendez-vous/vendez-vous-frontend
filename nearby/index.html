@@ -8,13 +8,38 @@
   <!-- meta tag to make the website Search Engine friendly-->
   <meta name="HandheldFriendly" content="True">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <style type="text/css"></style>
+  <style type="text/css">
+		h1 {
+			font-size: 64px;
+			font-weight: bold;
+			text-align:center;
+		}
+
+		h2 {
+
+		}
+
+		button {
+			float: right;
+		}
+	</style>
 </head>
 
 <body>
-	<h1 class="text-center">Users nearby you available for meeting</h1>
+	<div class="center" id="Heading">
+		<h1>Nearby users available to meet</h1>
+	</div>
 
-	<button onclick="location.href='https://vendez-vous.ml/profile'" type="button">
-     Profile</button>
+	<button onclick="location.href='https://vendez-vous.ml/profile'" type="button">Profile</button>
+	<br>
+
+	<script type="text/javascript">
+		if (geo_position_js.init()) {
+			geo_position_js.getCurrentPosition(success_callback,error_callback);
+		} else {
+			alert("Functionality not available");
+		}
+	</script>
+
 </body>
 </html>
