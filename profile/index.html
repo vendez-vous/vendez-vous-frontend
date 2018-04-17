@@ -9,14 +9,21 @@
   <meta name="HandheldFriendly" content="True">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<style type="text/css">
-		h1 {
+		.heading h1 {
 			font-size: 64px;
-			font-weight: bold;
+			/* font-family: "Amatic SC--Menu"; */
+			/* font-family: sans-serif; */
 			text-align:center;
+			background-color: rgb(124, 124, 224);
+			color: rgb(255, 153, 0);
+			margin: 0;
 		}
 
-		h2 {
-
+		.subheadings {
+			width: 500px;
+			margin: 30px auto 0 auto;
+			border: 2px solid #dddddd;
+			padding: 20px;
 		}
 
 		button {
@@ -26,7 +33,7 @@
 </head>
 
 <body>
-	<div class="center" id="Heading">
+	<div class="heading">
 		<h1>Profile</h1>
 	</div>
 
@@ -34,33 +41,29 @@
 	<br>
 	<button onclick="javascript:logout();">Logout from Facebook</button>
 
-	<div class="center" id="SubHeadings">
-		<div class="Name">
-			<form action="/action_page.php">
+	<div class="subheadings">
+		<form action="/action_page.php">
+			<div class="name">
 	  		<h2>Name</h2>
 	  		<input type="text" name="name">
 	  		<br><br>
-				<input type="submit" value="Save">
-			</form>
-		</div>
+				<!-- <input type="submit" value="Save"> -->
+			</div>
 
-		<div class="center" id="About">
-			<form action="/action_page.php">
-	  		<h2>About</h2>
-	  		<input type="text" name="about">
-	  		<br><br>
-				<input type="submit" value="Save">
-			</form>
-		</div>
+			<div class="about">
+		  		<h2>About</h2>
+		  		<input type="text" name="about">
+		  		<br><br>
+					<!-- <input type="submit" value="Save"> -->
+			</div>
 
-		<div class="center" id="Interests">
-			<form action="/action_page.php">
-	  		<h2>Interests</h2>
-	  		<input type="text" name="interests">
-	  		<br><br>
-				<input type="submit" value="Save">
-			</form>
-		</div>
+			<div class="interests">
+		  		<h2>Interests</h2>
+		  		<input type="text" name="interests">
+		  		<br><br>
+					<input type="submit" value="Save">
+			</div>
+		</form>
 	</div>
 
 	<!-- <button onclick="handleSessionResponse(response)" type="button">Logout</button> -->
