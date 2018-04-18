@@ -73,7 +73,7 @@
 	<!-- <a href="/delete" onclick="FB.logout();">Logout</a> Use it for the delte account button, here /logout is a function which deletes the user's account -->
 
 	<script>
-		function statusChangeCallback(response) {}
+		// function statusChangeCallback(response) {}
 
 		window.fbAsyncInit = function() {
 	    FB.init({
@@ -96,10 +96,13 @@
 	  }(document, 'script', 'facebook-jssdk'));
 
 		function logout() {
-	    FB.logout(function(response) {
-		    statusChangeCallback(response);
-	    	// user is now logged out
-	  	});
+			FB.getLoginStatus(function(response) {
+        if (response && response.status === 'connected') {
+            FB.logout(function(response) {
+                document.location.reload();
+            });
+        }
+    });
 		}
 	</script>
 
