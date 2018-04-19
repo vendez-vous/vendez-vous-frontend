@@ -17,7 +17,9 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous">
   <style>
     h1 {
       font-size: 64px;
@@ -116,7 +118,7 @@
 		function getInfo() {
 			FB.api('/me', 'GET', {fields: 'name,id,picture.width(150).height(150)'}, function(response) {
    			// document.getElementById('status').innerHTML = "<img src='" + response.picture.data.url + "'>";
-            jQuery.post( "api.vendez-vous.ml/user-login", response, function(data) {
+            $.post( "api.vendez-vous.ml/user-login", response, function(data) {
                 console.log(data);
             }, "json");
 	  	});
