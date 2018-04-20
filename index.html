@@ -16,15 +16,19 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/favicon.ico" />
   <meta property="og:description" content="The app that lets you network over meals, based on your conversation interests." />
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<!-- Adding Google Font API -->
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Tangerine|Gugi|Indie+Flower">
   <style>
-    h1 {
-      font-size: 64px;
-      font-weight: bold;
-			text-align: center;
-    }
+		.heading h1 {
+			font-size: 64px;
+			font-family: 'Indie Flower', sans-serif;
+			text-align:center;
+			background-color: rgb(124, 124, 224);
+			color: white;
+			margin: 0;
+		}
 
 		h2 {
 			text-align: center;
@@ -37,19 +41,19 @@
 </head>
 
 <body>
-	<div class="center" id="Heading">
+	<div class="heading">
 		<h1>VendezVous</h1>
 	</div>
 
-	<div class="center" id=" Main-Description">
+	<div class="main-description">
 		<h2>The app that helps you network over meals, based on your conversation interests.</h2>
 	</div>
 
-	<div class="center" id="Description">
+	<div class="description">
 		<h3></h3>
 	</div>
 
-	<div class="center" id="login-button">
+	<div class="login-button">
 		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 	</div>
 
