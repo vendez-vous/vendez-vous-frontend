@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>VendezVous</title>
 	<base href="/">
@@ -7,27 +8,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- meta tag for favicon-->
 	<link rel="shortcut icon" href="/favicon.png">
-  <!-- meta tag to make the website Search Engine friendly-->
-  <meta name="HandheldFriendly" content="True">
+	<!-- meta tag to make the website Search Engine friendly-->
+	<meta name="HandheldFriendly" content="True">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	<!-- Adding Google Font API -->
-	<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Tangerine|Gugi|Indie+Flower">
-  <style type="text/css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine|Gugi|Indie+Flower">
+	<style type="text/css">
 		body {
-			/* background-image: url(https://www.colorado.edu/today/sites/default/files/styles/medium/public/article-image/conversation.jpg?itok=152OkPxC); */
-			background-image: url(https://images.unsplash.com/photo-1469307580733-007134b82100?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=379bec71db78c32b2f0412a8d86fa84c&auto=format&fit=crop&w=1500&q=80);
-
+			background-image: url("/nearby/assets/background.jpeg");
 			background-repeat: no-repeat;
 			background-size: cover;
 		}
+
 		.heading h1 {
 			font-size: 64px;
 			font-family: 'Indie Flower', sans-serif;
-			text-align:center;
+			text-align: center;
 			background-color: rgb(124, 124, 224);
 			color: white;
 			margin: 0;
 		}
+
 		button {
 			float: right;
 		}
@@ -109,7 +110,6 @@
 			color: #4e5052;
 			text-transform: capitalize;
 		}
-
 	</style>
 </head>
 
@@ -122,8 +122,8 @@
 	<br><br>
 
 	<div class="container">
-	  <div class="row">
-	    <div class="col-md-3 col-sm-6">
+		<div class="row">
+			<div class="col-md-3 col-sm-6">
 				<div class="person">
 					<div class="pic">
 						<img src="http://images5.fanpop.com/image/photos/31800000/Robert-Downey-jr-robert-downey-jr-31831924-333-500.jpg" alt="Profile Picture">
@@ -133,7 +133,7 @@
 						<span class="interests">Interests</span>
 					</div>
 				</div>
-	    </div>
+			</div>
 
 			<div class="col-md-3 col-sm-6">
 				<div class="person">
@@ -145,7 +145,7 @@
 						<span class="interests">Interests</span>
 					</div>
 				</div>
-	    </div>
+			</div>
 
 			<div class="col-md-3 col-sm-6">
 				<div class="person">
@@ -157,7 +157,7 @@
 						<span class="interests">Interests</span>
 					</div>
 				</div>
-	    </div>
+			</div>
 
 			<div class="col-md-3 col-sm-6">
 				<div class="person">
@@ -169,65 +169,69 @@
 						<span class="interests">Interests</span>
 					</div>
 				</div>
-	    </div>
-	  </div>
+			</div>
+		</div>
 	</div>
 
 	<script type="text/javascript">
 		window.onload = function() {
-		  var startPos;
-		  var geoOptions = {
-		     timeout: 10 * 1000
-		  }
+			var startPos;
+			var geoOptions = {
+				timeout: 10 * 1000
+			}
 
-		  var geoSuccess = function(position) {
-		    startPos = position;
-		    document.getElementById('startLat').innerHTML = startPos.coords.latitude;
-		    document.getElementById('startLon').innerHTML = startPos.coords.longitude;
-		  };
-		  var geoError = function(error) {
-		    console.log('Error occurred. Error code: ' + error.code);
-		    // error.code can be:
-		    //   0: unknown error
-		    //   1: permission denied
-		    //   2: position unavailable (error response from location provider)
-		    //   3: timed out
-		  };
+			var geoSuccess = function(position) {
+				startPos = position;
+				document.getElementById('startLat').innerHTML = startPos.coords.latitude;
+				document.getElementById('startLon').innerHTML = startPos.coords.longitude;
+			};
+			var geoError = function(error) {
+				console.log('Error occurred. Error code: ' + error.code);
+				// error.code can be:
+				//   0: unknown error
+				//   1: permission denied
+				//   2: position unavailable (error response from location provider)
+				//   3: timed out
+			};
 
-		  navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+			navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
 		};
 
 		window.fbAsyncInit = function() {
-	    FB.init({
-	      appId      : 203968780201183,
-	      cookie     : true,  // enable cookies to allow the server to access
-	                          // the session
-	      xfbml      : true,  // parse social plugins on this page
-	      version    : 'v2.12', // use graph api version 2.8
-	      autoLogAppEvents : true,
-	     // status 	 : true /* reduces time wasted in checking if the user is logged in or not */
-	    });
-	  };
+			FB.init({
+				appId: 203968780201183,
+				cookie: true, // enable cookies to allow the server to access
+				// the session
+				xfbml: true, // parse social plugins on this page
+				version: 'v2.12', // use graph api version 2.8
+				autoLogAppEvents: true,
+				// status 	 : true /* reduces time wasted in checking if the user is logged in or not */
+			});
+		};
 
 		(function(d, s, id) {
-	    var js, fjs = d.getElementsByTagName(s)[0];
-	    if (d.getElementById(id)) return;
-	    js = d.createElement(s); js.id = id;
-	    js.src = "https://connect.facebook.net/en_US/sdk.js";
-	    fjs.parentNode.insertBefore(js, fjs);
-	  }(document, 'script', 'facebook-jssdk'));
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "https://connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
 
 		function getInfo() {
-			FB.api('/me', 'GET', {fields: 'name,id,picture.width(150).height(150)'}, function(response) {
-   			document.getElementById('status').innerHTML = "<img src='" + response.picture.data.url + "'>";
-	  	});
+			FB.api('/me', 'GET', {
+				fields: 'name,id,picture.width(150).height(150)'
+			}, function(response) {
+				document.getElementById('status').innerHTML = "<img src='" + response.picture.data.url + "'>";
+			});
 		}
 	</script>
 
 	<!-- Ocdptional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 </body>
+
 </html>
