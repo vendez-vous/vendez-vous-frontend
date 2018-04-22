@@ -46,14 +46,10 @@
 			border-color: black;
 		}
 
-		.nearby-users {
-			float: left;
+		.buttons {
 			background-color: transparent;
-		}
-
-		.fb-logout {
-			float: right;
-			background-color: transparent;
+			border-color: black;
+			padding-left: 5px;
 		}
 	</style>
 </head>
@@ -62,9 +58,12 @@
 	<div class="heading">
 		<h1>Profile</h1>
 	</div>
+	<br>
+	<div class="buttons">
+		<button onclick="location.href='https://vendez-vous.github.io/nearby'" type="button">Users Nearby</button>
+		<button onclick="javascript:logout();">Logout from Facebook</button>
+	</div>
 
-	<button class="nearby-users" onclick="location.href='https://vendez-vous.github.io/nearby'" type="button">Users Nearby</button>
-	<button class="fb-logout" onclick="javascript:logout();">Logout from Facebook</button>
 
 	<div class="subheadings">
 		<form action="/action_page.php">
